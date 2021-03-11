@@ -13,7 +13,6 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="./js/indigo.min.js"></script>
 
-
 </head>
 <body>
     <div id="wrap">
@@ -44,10 +43,10 @@
                     <br><br>                
                     <button class="submit">Login</button>
                 </form>
-                <form id="register" action="" class="input-group">
-                    <input type="text" class="input-field" placeholder="ID: " required>
-                    <input type="email" class="input-field" placeholder="PASSWORD :" required>
-                    <input type="password" class="input-field" placeholder="Email :" required>
+                <form id="register" action="./register" class="input-group">
+                    <input type="text" id="id" name="id"class="input-field" placeholder="ID: " required>
+                    <input type="password" id="pw" name="pw" class="input-field" placeholder="PASSWORD :" required>                    
+                    <input type="text" name="email" class="input-field" placeholder="Email :" required>
                     <br><br>
                     <button class="submit">REGISTER</button>
                 </form>
