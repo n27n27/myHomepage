@@ -14,14 +14,14 @@
 <body>
     <div id="wrap">
         <header class="header cfixed">
-            <h1 class="logo"><a href="">N27</a></h1>
+            <h1 class="logo"><a href="https://bluen27.tistory.com/">N27</a></h1>
             <nav>
                 <ul class="gnb">
-                    <li><a href="#">HOME</a></li>                    
+                    <li><a href="./index">HOME</a></li>                    
                     <li><a href="#display-section">Who am I</a></li>
                     <li><a href="#work-section">SKILLS</a></li>
                     <li><a href="">BOARD</a></li>
-                    <li><a href="">LOGIN</a>                    
+                    <li><a href="./login">LOGIN</a>                    
                 </ul>
             </nav>
             <span class="menu-toggle-btn">
