@@ -1,8 +1,11 @@
 package com.spring.service;
 
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+
+import com.spring.dto.MemberDto;
 
 public interface MemberService
 {
-	public void register(Map<String, String> map);
+	public void register(HttpServletRequest request);
+	public MemberDto loginCheck(HttpServletRequest request);
 }

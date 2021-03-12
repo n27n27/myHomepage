@@ -7,4 +7,8 @@
 	<insert id="register" parameterType="java.util.HashMap">
 		insert into usr(id, pw, email) values (#{id}, #{pw}, #{email})
 	</insert>
+	
+	<select id ="loginCheck" parameterType="java.util.HashMap" resultType="com.spring.dto.MemberDto">
+		select * from usr where id = #{id} and pw = #{pw}
+	</select>
 </mapper>

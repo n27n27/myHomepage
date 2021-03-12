@@ -2,11 +2,6 @@
 
 /* 모바일용 CSS */
 /* 기본 CSS */
-.container{
-	width:90%;
-	max-width:1132px;
-	margin:0 auto;
-}    
 
 .cfixed:after, .container:after{
 	display:block;
@@ -76,7 +71,7 @@
     
 .header .menu-toggle-btn span:nth-child(2){
 	margin:5px 0;
-}    
+}
     
 /* 푸터 영역 CSS */
 .footer{

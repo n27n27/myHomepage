@@ -71,8 +71,9 @@
     
 .header .gnb li{
 	border-bottom:1px solid #303f9f;
-}
-    
+	
+}    
+  
 .header .gnb li a{
 	display:block;
 	padding:14px 0 14px 5%;
