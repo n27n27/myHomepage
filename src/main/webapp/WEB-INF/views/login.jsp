@@ -8,28 +8,25 @@
 <title>N27</title>
 
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<link rel="stylesheet" type="text/css" href="./css/default.css">
+<link rel="stylesheet" type="text/css" href="./css/login.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <script src="http://code.jquery.com/jquery.js"></script>
-<script src="./js/indigo.min.js"></script>
-
 </head>
 <body>
     <div id="wrap">
         <header class="header cfixed">
-            <h1 class="logo"><a href="https://bluen27.tistory.com/">N27</a></h1>
+            <h1 class="logo"><a href="./index">N27</a></h1>
             <nav>
                 <ul class="gnb">
-                    <li><a href="./index">HOME</a></li>                    
-                    <li><a href="#display-section">Who am I</a></li>
-                    <li><a href="#work-section">SKILLS</a></li>
+                    <li><a href="./index">HOME</a></li>                   
                     <li><a href="">BOARD</a></li>
                     <li><a href="./login">LOGIN</a>                    
                 </ul>
             </nav>
+            
             <hr class="divider">            
         </header>  
-        <section class=login-section>
+        
 	        <div class="form-wrap">
                 <div class="button-wrap">
                     <div id="btn"></div>
@@ -52,7 +49,7 @@
                 </form>
             </div>
        
-        </section>
+        
          
         <footer class="footer">
          <hr class="divider">        	

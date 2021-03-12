@@ -14,7 +14,7 @@
 <body>
     <div id="wrap">
         <header class="header cfixed">
-            <h1 class="logo"><a href="https://bluen27.tistory.com/">N27</a></h1>
+            <h1 class="logo"><a href="./index">N27</a></h1>
             <nav>
                 <ul class="gnb">
                     <li><a href="./index">HOME</a></li>                    
@@ -80,68 +80,52 @@
                 <h2 class="sec-tit">SKILLS</h2>
                 <ul class="work-list">
                     <li>
-                      
-                            <div class="info">
-                                <h3>Java</h3>                                
-                            </div>
-                            <img src="./images/java.png" alt="">
-                      
+                    	<div class="info">
+                    		<h3>Java</h3>
+                    	</div>
+                    	<img src="./images/java.png" alt="" />                      
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>Spring</h3>                                
-                            </div>
-                            <img src="./images/spring.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>Spring</h3>
+                    	</div>
+                    	<img src="./images/spring.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>HTML5</h3>                                
-                            </div>
-                            <img src="./images/html5.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>HTML5</h3>
+                    	</div>
+                    	<img src="./images/html5.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>CSS3</h3>                                
-                            </div>
-                            <img src="images/css3.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>CSS3</h3>
+                    	</div>
+                    	<img src="./images/css3.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>Javascript</h3>                                
-                            </div>
-                            <img src="images/js.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>Javascript</h3>
+                    	</div>
+                    	<img src="./images/js.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>jQuery</h3>                                
-                            </div>
-                            <img src="images/jQuery.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>jQuery</h3>
+                    	</div>
+                    	<img src="./images/jQuery.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>Linux</h3>                                
-                            </div>
-                            <img src="images/linux.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>Linux</h3>
+                    	</div>
+                    	<img src="./images/linux.png" alt="" />                        
                     </li>
                     <li>
-                        
-                            <div class="info">
-                                <h3>Python</h3>                                
-                            </div>
-                            <img src="images/python.png" alt="">
-                        
+                    	<div class="info">
+                    		<h3>Python</h3>
+                    	</div>
+                    	<img src="./images/python.png" alt="" />                        
                     </li>
                 </ul>
             </section>
