@@ -20,7 +20,7 @@
                     <li><a href="./index">HOME</a></li>                    
                     <li><a href="#display-section">Who am I</a></li>
                     <li><a href="#work-section">SKILLS</a></li>
-                    <li><a href="">BOARD</a></li>
+                    <li><a href="./board">BOARD</a></li>
                     <c:set value="${dto}"  var = "dto" />
                     <li>
                     	<c:choose>

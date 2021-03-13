@@ -18,7 +18,7 @@
 			<nav>
 				<ul class="gnb">
 					<li><a href="./index">HOME</a></li>
-					<li><a href="">BOARD</a></li>
+					<li><a href="./board">BOARD</a></li>
 					<li><a href="./login">LOGIN</a>
 				</ul>
 			</nav>
