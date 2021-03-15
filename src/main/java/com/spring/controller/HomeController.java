@@ -8,13 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.dto.MemberDto;
-import com.spring.service.MemberServiceImpl;
+import com.spring.service.MemberService;
 
 @Controller
 public class HomeController
 {
 	@Autowired
-	MemberServiceImpl member;
+	MemberService member;
 	
 	@RequestMapping("/")
 	public String indexPage()
@@ -54,12 +54,5 @@ public class HomeController
 	{
 		member.register(request);
 		return "index";
-	}
-	
-	@RequestMapping("/board")
-	public String list()
-	{
-		return "board";
-	}
-	
+	}	
 }

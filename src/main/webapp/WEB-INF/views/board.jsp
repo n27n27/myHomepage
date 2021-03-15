@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.Timestamp"%>     
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +89,7 @@
 		font-size:80%;
 		color:#3f51b5;
 		margin: 0 auto;
-		height: 400px;	
+		height: 90%;	
 		
 	}	
 	
@@ -110,9 +112,8 @@
 		margin: 0 auto;
 	}
 	/* 푸터 영역 CSS */
-	.footer{
-	margin-top:104px;
-	padding:18px 5%;
+	.footer{	
+		padding:0px 5%;
 	}
 	    
 	.footer p{
@@ -173,10 +174,15 @@
 	/* PC용 CSS */
 	@media all and (min-width:1132px){	    
 	    
+	    td{
+	    	height:5px;
+	    }
+	    
 	}
 </style>
 </head>
 <body>
+
     <div id="wrap">
         <header class="header cfixed">
             <h1 class="logo"><a href="./index">N27</a></h1>
@@ -214,23 +220,63 @@
 					<th width=15%>작성일</th>
 					<th width=15%>조회수</th>					
 				</tr>
+				<c:forEach items="${dtos }" var = "dto">
+				<c:set var="xxx" value="${dto.bdate }" />
 				<tr>
-	 				<td width=15%>번호</td>
-					<td width=40%>제목</td>
-					<td width=15%>작성자</td>
-					<td width=15%>작성일</td>
-					<td width=15%>조회수</td>					
+					
+				<%
+					Timestamp date = null;
+					SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+					SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+					
+					date = (Timestamp)pageContext.getAttribute("xxx");
+					Timestamp now = new Timestamp(System.currentTimeMillis());
+	
+					String day1 = sdf1.format(date);
+					String day2 = sdf1.format(now);
+					String day3 = null;
+
+					if(day1.equals(day2))
+					{
+						day3 = sdf2.format(date);
+					}
+					else
+					{
+						day3 = sdf1.format(date);
+					}
+				%>
+	 				<td>${dto.bnum }</td>
+					<td>${dto.btitle }</td>
+					<td>${dto.bid }</td>
+					<td>${dto.bdate }</td>
+					<td>${dto.bhit}</td>
+										
 				</tr>
-				<tr>
-	 				<td width=15%>번호</td>
-					<td width=40%>제목</td>
-					<td width=15%>작성자</td>
-					<td width=15%>작성일</td>
-					<td width=15%>조회수</td>					
-				</tr>
+				</c:forEach>				
 				<tr class="page">
 					<td colspan="5">
-					[처음][<][1][2][3][>][끝]
+					<c:choose>
+					<c:when test="${(page.curPage - 1) < 1 }"> [처음] </c:when>
+					<c:otherwise><a href="./board?page=1">[처음]</a></c:otherwise>
+					</c:choose>
+					<c:choose>
+					<c:when test="${(page.curPage - 1) < 1 }">[<]</c:when>
+					<c:otherwise><a href="./board?page=${page.curPage - 1}">[<]</a></c:otherwise>
+					</c:choose>
+					<c:forEach var="each" begin="${page.startPage }" end="${page.endPage }" step="1">
+					<c:choose>
+					<c:when test="${page.curPage == each }"> [${each}] </c:when>
+					<c:otherwise><a href="./board?page=${each}">[${each}]</a></c:otherwise>
+					</c:choose>							
+					</c:forEach>
+					<c:choose>
+					<c:when test="${(page.curPage + 1) > page.totalPage}"> [>] </c:when>
+					<c:otherwise><a href="./board?page=${page.curPage + 1 }">[>]</a></c:otherwise>
+					</c:choose>
+					<c:choose>
+					<c:when test="${page.curPage == page.totalPage}"> [끝] </c:when>
+					<c:otherwise><a href="./board?page=${page.totalPage}">[끝]</a></c:otherwise>
+					</c:choose>
 					</td>
 				</tr>
 			</table>
@@ -242,5 +288,3 @@
     </div>
 </body>
 </html>
-
-

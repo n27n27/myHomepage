@@ -1,0 +1,17 @@
+table
+1. usr
+	- create table usr(id varchar2(20), pw varchar2(20), email varchar2(40));
+	- insert
+	- drop
+
+2. board
+	- create table board(bnum number(5), btitle varchar2(30), bcontent varchar2(4000), bid varchar2(20), bdate date, bhit number(5));
+	- insert into board (bNum, bTitle, bContent, bdate, bid, bhit) values (board_seq.nextval, '제목', '내용', sysdate, 'test', 0); 
+	- drop
+
+2-1. board_seq
+	- create sequence board_seq;
+	
+	
+	
+	
