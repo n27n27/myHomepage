@@ -93,6 +93,9 @@
 		
 	}	
 	
+	.right{
+		float:right;
+	}
 	table{
 		border-collapse: collapse;
 		text-align:left;		
@@ -111,6 +114,7 @@
 		text-align:center;
 		margin: 0 auto;
 	}
+	
 	/* 푸터 영역 CSS */
 	.footer{	
 		padding:0px 5%;
@@ -246,7 +250,7 @@
 					}
 				%>
 	 				<td>${dto.bnum }</td>
-					<td>${dto.btitle }</td>
+					<td><a href="./content?bnum=${dto.bnum }">${dto.btitle }</a></td>
 					<td>${dto.bid }</td>
 					<td>${dto.bdate }</td>
 					<td>${dto.bhit}</td>
@@ -279,7 +283,11 @@
 					</c:choose>
 					</td>
 				</tr>
-			</table>
+				<tr>
+					<td colspan=5>
+					<span class=right><a href=./write>글쓰기</a></span></td>	
+				</tr>
+			</table>			
         </div>
         <footer class="footer">
         	<hr class="divider">        	
