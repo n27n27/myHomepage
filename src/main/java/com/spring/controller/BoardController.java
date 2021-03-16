@@ -24,32 +24,30 @@ public class BoardController
 		return "board";
 	}
 	
-//	@RequestMapping("/guest/rBoard")
-//	public String rList(HttpServletRequest request, Model model, RPageDto pdto)
-//	{
-//		int nPage = 1;
-//		try
-//		{
-//			String sPage = request.getParameter("page");
-//			nPage = Integer.parseInt(sPage);
-//		}
-//		catch(Exception e)
-//		{}		
-//		
-//		pdto = rbbs.articlePage(nPage);
-//		
-//		System.out.println(pdto);
-//		model.addAttribute("page", pdto);
-//		nPage = pdto.getCurPage();
-//		
-//		HttpSession session = null;
-//		session = request.getSession();
-//		session.setAttribute("cpage", nPage);
-//				
-//		model.addAttribute("dto", mag.requestStyle());
-//		model.addAttribute("ncontents", rbbs.nList());
-//		model.addAttribute("contents", rbbs.list(nPage));		
-//		
-//		return "guest/rList";
-//	}
+	@RequestMapping("/writeView")
+	public String writeView()
+	{
+		return "writeView";
+	}
+	
+	@RequestMapping("/writeOk")
+	public String write(HttpServletRequest request)
+	{
+		board.write(request);
+		return "redirect:board";
+	}
+	
+	@RequestMapping("/contentView")
+	public String contentView(HttpServletRequest request, Model model)
+	{
+		board.contentView(request, model);
+		return "contentView";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request)
+	{		
+		board.delete(request);
+		return "redirect:board";
+	}
 }

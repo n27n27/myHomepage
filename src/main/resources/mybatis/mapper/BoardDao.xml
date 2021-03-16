@@ -10,4 +10,21 @@
 	<select id = "list" resultType="com.spring.dto.BoardDto">
 		<![CDATA[select * from (select rownum num, A.* from (select * from board order by rownum desc) A where rownum <= ${param2}) B where B.num >= ${param1}]]>
 	</select>
+	
+	<insert id = "write" parameterType="java.util.HashMap">
+		insert into board (bNum, bTitle, bContent, bdate, bid, bhit)
+			values (board_seq.nextval, #{btitle}, #{bcontent}, sysdate, #{bname}, 0)
+	</insert>
+	
+	<insert id = "upHit" parameterType="java.util.HashMap">
+		update board set bhit = bhit + 1 where bnum = #{bnum}
+	</insert>
+	
+	<select id = "contentView" resultType="com.spring.dto.BoardDto">
+		select * from board where bNum = #{bnum}
+	</select>
+	
+	<delete id = "delete" parameterType="java.util.HashMap">
+		delete from board where bNum = #{bnum}
+	</delete>
 </mapper>

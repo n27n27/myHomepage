@@ -5,7 +5,7 @@ table
 	- drop
 
 2. board
-	- create table board(bnum number(5), btitle varchar2(30), bcontent varchar2(4000), bid varchar2(20), bdate date, bhit number(5));
+	- create table board(bnum number(5), btitle varchar2(100), bcontent varchar2(4000), bid varchar2(20), bdate date, bhit number(5));
 	- insert into board (bNum, bTitle, bContent, bdate, bid, bhit) values (board_seq.nextval, '제목', '내용', sysdate, 'test', 0); 
 	- drop
 

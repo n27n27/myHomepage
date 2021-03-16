@@ -1,6 +1,8 @@
 package com.spring.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -91,4 +93,35 @@ public class BoardServiceImpl implements BoardService
 		return page;		
 	}
 
+	@Override
+	public void write(HttpServletRequest request)
+	{
+		String bname = request.getParameter("bname");
+		String btitle = request.getParameter("btitle");
+		String bcontent = request.getParameter("bcontent");
+				
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("bname", bname);
+		map.put("btitle", btitle);
+		map.put("bcontent", bcontent);
+		
+		board.write(map);		
+	}
+
+	@Override
+	public void contentView(HttpServletRequest request, Model model)
+	{
+		String bnum = request.getParameter("bnum");
+		board.upHit(bnum);		
+		model.addAttribute("bdto", board.contentView(bnum));
+	}
+
+	@Override
+	public void delete(HttpServletRequest request)
+	{
+		String bnum = request.getParameter("bnum");		
+		board.delete(bnum);		
+	}
+	
 }

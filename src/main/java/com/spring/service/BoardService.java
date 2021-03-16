@@ -13,4 +13,7 @@ public interface BoardService
 	public List<BoardDto> list(int curPage);	
 	public BoardPage articlePage(int curPage);
 	public void board(HttpServletRequest request, Model model, BoardPage page);
+	public void write(HttpServletRequest request);
+	public void contentView(HttpServletRequest request, Model model);
+	public void delete(HttpServletRequest request);
 }

@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="./css/reset.css"> 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="./js/indigo.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 <style>
 	/* 모바일용 CSS */
 	/* 기본 CSS */
@@ -28,6 +29,11 @@
 		background:#eee;
 	}
 	
+	input{		
+		font-size:18px;				
+		background-color:transparent;  
+		border:0px transparent solid;	
+	}
 	/* 헤더 영역 CSS */
 	.header{
 		position:relative;
@@ -93,9 +99,6 @@
 		
 	}	
 	
-	.right{
-		float:right;
-	}
 	table{
 		border-collapse: collapse;
 		text-align:left;		
@@ -103,7 +106,7 @@
 		margin : auto;				
 	}			
 		
-	td{
+	td, th{
 		border-bottom: 2px solid #eee;
 		height:35px;	
 		padding:1%;
@@ -114,6 +117,17 @@
 		text-align:center;
 		margin: 0 auto;
 	}
+	
+	.right{
+		witdh:50px;
+		height:20px;
+		float:right;
+		margin: 3px;
+		padding: 3px;
+		border: 1px solid #3f51b5;
+		 
+	}
+	
 	
 	/* 푸터 영역 CSS */
 	.footer{	
@@ -167,6 +181,12 @@
 		/* 미들 영역 CSS*/
 		.middle{				
 			font-size:95%;
+		}
+		
+		.right{
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #3f51b5; 
 		}			    
 		/* 푸터 영역 CSS */
 			    
@@ -204,7 +224,7 @@
 							<a href="./login">LOGIN</a>
 						</c:otherwise>
 						</c:choose>
-                    </li>                                                                                
+                    </li>                                                            
                 </ul>
             </nav>
             <span class="menu-toggle-btn">
@@ -215,86 +235,46 @@
             </span>
             <hr class="divider">
         </header>
-        <div class="middle">
-        	<table>
-	 			<tr>
-	 				<th width=15%>번호</th>
-					<th width=40%>제목</th>
-					<th width=15%>작성자</th>
-					<th width=15%>작성일</th>
-					<th width=15%>조회수</th>					
-				</tr>
-				<c:forEach items="${dtos }" var = "dto">
-				<c:set var="xxx" value="${dto.bdate }" />
-				<tr>
-					
-				<%
-					Timestamp date = null;
-					SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-					SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
-					
-					date = (Timestamp)pageContext.getAttribute("xxx");
-					Timestamp now = new Timestamp(System.currentTimeMillis());
-	
-					String day1 = sdf1.format(date);
-					String day2 = sdf1.format(now);
-					String day3 = null;
-
-					if(day1.equals(day2))
-					{
-						day3 = sdf2.format(date);
-					}
-					else
-					{
-						day3 = sdf1.format(date);
-					}
-				%>
-	 				<td>${dto.bnum }</td>
-					<td><a href="./contentView?bnum=${dto.bnum }">${dto.btitle }</a></td>
-					<td>${dto.bid }</td>
-					<td><%= day3%></td>
-					<td>${dto.bhit}</td>
+        <section class=middle>
+        	<form action="./writeOk" id="reg_frm" method="post"> 
+				<table class="table">
+					<tr>
+		      			<th scope="row" width ="10%">작성자</th>
+		      			<td><input type="text" name="bname" value="${dto.id}" readonly></td>		      			
+		      		</tr>		      		
+		    		
+		    		<tr>
+		      			<th scope="row" width ="10%">제목</th>
+		      			<td><input type="text" id="btitle" name="btitle"></td>
+		      		</tr>
+		      			      				      	
+			    	<tr>
+		    			<th colspan=2 scope="row" width ="100%">내용</th>
+		      			     
+		    		</tr>
+		    		<tr>
+		    			<td colspan=2>
+		      				<textarea name="bcontent" id="bcontent" rows="10" style="width:100%"></textarea>		      				
+		      				<script>								
+								var ckeditor_config = {		
+								resize_enaleb : false,		
+								enterMode : CKEDITOR.ENTER_BR,		
+								shiftEnterMode : CKEDITOR.ENTER_P,		
+								filebrowserUploadUrl : "${pageContext.request.contextPath}/ckUpload"		
+								};		
 										
-				</tr>
-				</c:forEach>				
-				<tr class="page">
-					<td colspan="5">
-					<c:choose>
-					<c:when test="${(page.curPage - 1) < 1 }"> [처음] </c:when>
-					<c:otherwise><a href="./board?page=1">[처음]</a></c:otherwise>
-					</c:choose>
-					<c:choose>
-					<c:when test="${(page.curPage - 1) < 1 }">[<]</c:when>
-					<c:otherwise><a href="./board?page=${page.curPage - 1}">[<]</a></c:otherwise>
-					</c:choose>
-					<c:forEach var="each" begin="${page.startPage }" end="${page.endPage }" step="1">
-					<c:choose>
-					<c:when test="${page.curPage == each }"> [${each}] </c:when>
-					<c:otherwise><a href="./board?page=${each}">[${each}]</a></c:otherwise>
-					</c:choose>							
-					</c:forEach>
-					<c:choose>
-					<c:when test="${(page.curPage + 1) > page.totalPage}"> [>] </c:when>
-					<c:otherwise><a href="./board?page=${page.curPage + 1 }">[>]</a></c:otherwise>
-					</c:choose>
-					<c:choose>
-					<c:when test="${page.curPage == page.totalPage}"> [끝] </c:when>
-					<c:otherwise><a href="./board?page=${page.totalPage}">[끝]</a></c:otherwise>
-					</c:choose>
-					</td>
-				</tr>
-				<c:choose>
-                    <c:when test="${dto.id != null }">
-                    	<tr>
-							<td colspan=5>
-							<span class=right><a href=./writeView>글쓰기</a></span></td>	
-						</tr>
-                    </c:when>
-					<c:otherwise>						
-					</c:otherwise>
-					</c:choose>				
-			</table>			
-        </div>
+								CKEDITOR.replace('bcontent', ckeditor_config);		
+							</script>		
+		      			</td>
+		    		</tr>
+		    		<tr>
+					<td colspan=2>
+						<span class=right><a href=./board>취소</a></span><span class=right><input type="submit" value="글쓰기"/></span>
+					</td>	
+					</tr>
+		    	</table>    			
+    		</form>
+        </section>
         <footer class="footer">
         	<hr class="divider">        	
             <p class="copyright">N27</p>
